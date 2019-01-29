@@ -1,0 +1,19 @@
+# General
+*.pyc
+*.log
+*.pdf
+Backup_of*
+*.sqlite3
+
+# Static
+
+# Project
+var/
+robots.txt
+
+### PyCharm ###
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+.idea/*
+# Shell debug
+shell_history.py
