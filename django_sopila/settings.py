@@ -120,3 +120,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#  ---------------- sheet_generator settings ----------------
+ABJAD_TONES = [
+    "gs'", "gss'", "as'", "b'", "c''", "d''", "ef''",  # mala tones
+    "b", "c'", "d'", "ef'", "f'", "gf'",  # vela tones
+    "r"  # pause
+]
+
+BEATS_PER_MINUTE = 60
+BEATS_PER_SECOND = BEATS_PER_MINUTE / 60
+# timeframe length in s
+TIMEFRAME_LENGTH = 0.01
+BEAT = BEATS_PER_SECOND / TIMEFRAME_LENGTH
