@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import download_sheet
+from .views import download_sheet, download_sheet_api
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
         name='index_sheet_generator'
     ),
     url(r'^download/$', download_sheet, name='download_sheet_url'),
+    url(r'^download/api/$', download_sheet_api, name='download_sheet_api_url'),
 ]

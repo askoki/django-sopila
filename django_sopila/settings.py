@@ -121,6 +121,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# local ip address of the computer
+ALLOWED_HOSTS = [
+    '127.0.0.1', 'localhost', '192.168.1.5'
+]
+
 #  ---------------- sheet_generator settings ----------------
 ABJAD_TONES = [
     "gs'", "gss'", "as'", "b'", "c''", "d''", "ef''",  # mala tones
