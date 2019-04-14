@@ -122,14 +122,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'data') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'data')
 
 #  ---------------- sheet_generator settings ----------------
-ABJAD_TONES = [
-    "gs'", "gss'", "as'", "b'", "c''", "d''", "ef''",  # mala tones
-    "b", "c'", "d'", "ef'", "f'", "gf'",  # vela tones
-    "r"  # pause
-]
+ABJAD_TONES = {
+    'm5': "gss'",
+    'm4': "as'",
+    'm3': "b'",
+    'm2': "c''",
+    'm1': "d''",
+    'm0': "ef''",  # mala tones
+    'v5': "b", 
+    'v4': "c'",
+    'v3': "d'",
+    'v2': "ef'",
+    'v1': "f'",
+    'v0': "gf'",  # vela tones
+    'pause': "r"  # pause
+}
 
 BEATS_PER_MINUTE = 60
 BEATS_PER_SECOND = BEATS_PER_MINUTE / 60

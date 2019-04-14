@@ -9,16 +9,17 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, \
     HttpResponseNotAllowed, HttpResponseServerError
-from sheet_generator.utils import ToneParser
+from sheet_generator.utils import ToneParser, make_prediction_file
 from .forms import UploadFileForm
 
 
 def download_sheet_api(request, filename):
-    sheet = ToneParser()
-    dummy_filename = filename + '.pdf'
-    sheet.parse_tones(dummy_filename)
+    make_prediction_file(filename)
 
-    pdf = open(os.path.join(APP_DIR, 'pdf', dummy_filename), 'rb')
+    sheet = ToneParser(filename)
+    sheet.parse_tones()
+
+    pdf = open(os.path.join(APP_DIR, 'pdf', filename + '.pdf'), 'rb')
     response = HttpResponse(pdf)
     response[
         'Content-Disposition'

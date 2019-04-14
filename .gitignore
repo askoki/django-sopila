@@ -23,3 +23,7 @@ shell_history.py
 
 # pdf data
 sheet_generator/pdf/*
+sheet_generator/raw_predictions/*
+
+# model
+*.joblib
