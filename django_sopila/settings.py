@@ -25,19 +25,19 @@ SECRET_KEY = '053sqv4*o+=xmucmn)xwgv-_elik_qu3hpglm%0-ywgxe!poyi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'sheet_generator',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'sheet_generator'
 ]
 
 MIDDLEWARE = [
@@ -121,10 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# local ip address of the computer
-ALLOWED_HOSTS = [
-    '127.0.0.1', 'localhost', '192.168.1.5'
-]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'data') 
 
 #  ---------------- sheet_generator settings ----------------
 ABJAD_TONES = [

@@ -17,3 +17,5 @@ robots.txt
 .idea/*
 # Shell debug
 shell_history.py
+
+/data/*
