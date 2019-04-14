@@ -3,41 +3,26 @@ from sheet_generator.apps import APP_DIR
 
 from django.core.files.storage import default_storage
 
+
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, \
-HttpResponseNotAllowed, HttpResponseServerError
+    HttpResponseNotAllowed, HttpResponseServerError
 from sheet_generator.utils import ToneParser
 from .forms import UploadFileForm
 
 
-def download_sheet(request):
-
+def download_sheet_api(request, filename):
     sheet = ToneParser()
-    filename = 'test.pdf'
-    sheet.parse_tones(filename)
+    dummy_filename = filename + '.pdf'
+    sheet.parse_tones(dummy_filename)
 
-    pdf = open(os.path.join(APP_DIR, 'pdf', filename), 'rb')
+    pdf = open(os.path.join(APP_DIR, 'pdf', dummy_filename), 'rb')
     response = HttpResponse(pdf)
     response[
         'Content-Disposition'
-    ] = 'attachment; filename=%s.pdf' % ('sopila_sheet')
-
-    return response
-
-
-def download_sheet_api(request):
-
-    sheet = ToneParser()
-    filename = 'test.pdf'
-    sheet.parse_tones(filename)
-
-    pdf = open(os.path.join(APP_DIR, 'pdf', filename), 'rb')
-    response = HttpResponse(pdf)
-    response[
-        'Content-Disposition'
-    ] = 'attachment; filename=%s.pdf' % ('sopila_sheet')
+    ] = 'attachment; filename=%s.pdf' % (filename)
     return response
 
 

@@ -18,4 +18,8 @@ robots.txt
 # Shell debug
 shell_history.py
 
+# media data
 /data/*
+
+# pdf data
+sheet_generator/pdf/*
