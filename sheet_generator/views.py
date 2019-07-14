@@ -1,14 +1,10 @@
 import os
 from sheet_generator.apps import APP_DIR
-
 from django.core.files.storage import default_storage
-
-
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, \
-    HttpResponseNotAllowed, HttpResponseServerError
+    HttpResponseNotAllowed, HttpResponseServerError, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from sheet_generator.utils import ToneParser, make_prediction_file
 from .forms import UploadFileForm
 

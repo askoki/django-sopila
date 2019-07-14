@@ -126,19 +126,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'data')
 
 #  ---------------- sheet_generator settings ----------------
 ABJAD_TONES = {
+    # small sopela tones
     'm5': "gss'",
     'm4': "as'",
     'm3': "b'",
     'm2': "c''",
     'm1': "d''",
-    'm0': "ef''",  # mala tones
-    'v5': "b", 
+    'm0': "ef''",
+    # great sopela tones
+    'v5': "b",
     'v4': "c'",
     'v3': "d'",
     'v2': "ef'",
     'v1': "f'",
-    'v0': "gf'",  # vela tones
-    'pause': "r"  # pause
+    'v0': "gf'",
+    # pause
+    'pause': "r"
 }
 
 BEATS_PER_MINUTE = 60

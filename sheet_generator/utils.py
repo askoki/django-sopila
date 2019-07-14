@@ -118,9 +118,9 @@ class ToneParser:
                 'Data from file "%s" cannot be processed.' % (filename))
 
     def strip_silence(self):
-        '''
+        """
         Returns list without first and last n examples of silence class (13).
-        '''
+        """
         start_idx = 0
         end_idx = -1
         # class position
@@ -137,9 +137,9 @@ class ToneParser:
         self.tone_list = self.tone_list[start_idx:end_idx]
 
     def get_abjad_tones(self, tone_class_name):
-        '''
+        """
         Returns tuple containing mala and vela values.
-        '''
+        """
 
         try:
             mala = re.search('m\d', tone_class_name).group(0)
@@ -160,12 +160,12 @@ class ToneParser:
         return (ABJAD_TONES[mala], ABJAD_TONES[vela])
 
     def merge_same_tones(self, tone_list):
-        '''
+        """
         tone_list => list of tuples containing information about mala class,
         vela class and duration.
         Returns squashed list with distinct values in sequence array example:
         aaabbbccc becomes abc
-        '''
+        """
         merged_tone_list = {'m': [], 'v': []}
 
         prev_mala = tone_list[0][0]
@@ -203,12 +203,12 @@ class ToneParser:
         return merged_tone_list
 
     def get_tones_dict(self):
-        '''
+        """
         Returnes tuple containing two list of tuples. First list is set of
         tone and duration values of 'mala' and second are values of 'vela'.
         First value in each tuple is abjad tone name and second value is
         number of consecutive frames with that tone.
-        '''
+        """
         tone_list = []
         tone_length = 0
         # if tone is missclassified then tone length is assigned to next tone
